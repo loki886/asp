@@ -1,0 +1,907 @@
+ASP.NET Lab Programs 
+Program 1: Exposure of Web Applications and Tools 
+Aim:  To demonstrate ASP.NET project structure and tools. 
+Program1.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program1.aspx.cs" 
+Inherits="Program1" %> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Program 1 - Exposure of Web Applications</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<h2>Welcome to ASP.NET Web Application</h2> 
+<asp:Label ID="lblInfo" runat="server" Font-Size="Large"></asp:Label> 
+</form> 
+</body> 
+</html> 
+Program1.aspx.cs: 
+using System; 
+public partial class Program1 : System.Web.UI.Page 
+{ 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+lblInfo.Text = "This web application is running on: " + 
+Request.Browser.Browser + " " + Request.Browser.Version + "<br />Server 
+software: ASP.NET using Visual Studio 2019<br />" + 
+"Tools used: Visual Studio, .NET Framework, IIS Express."; 
+} 
+} 
+
+
+
+A web page displaying the heading and description of project structure and tools. 
+Program 2: Implement HTML Controls 
+Use HTML controls and access their values in code-behind. 
+Program2.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program2.aspx.cs" 
+Inherits="Program2" %> 
+<!DOCTYPE html> 
+<html> 
+<head><title>Program 2 - HTML Controls</title></head> 
+<body> 
+<form id="form1" runat="server"> 
+<label for="name">Enter your name:</label> 
+<input type="text" name="name" /> 
+<br /><br /> 
+<input type="submit" value="Submit" /> 
+</form> 
+</body> 
+</html> 
+Program2.aspx.cs: 
+using System; 
+public partial class Program2 : System.Web.UI.Page 
+{ 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+if (IsPostBack) 
+{ 
+} 
+string name = Request.Form["name"]; 
+Response.Write("Hello, " + name); 
+    } 
+} 
+Output: 
+When user enters a name and clicks Show Name, the page displays "Hello, [Name]!". 
+ 
+  
+Program 3: Implement Server Controls 
+Use ASP.NET server controls (TextBox, Button, Label) to get and display input. 
+Program3.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program3.aspx.cs" 
+Inherits="Program3" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 3</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:TextBox ID="txtInput" runat="server" Placeholder="Enter 
+Text"></asp:TextBox><br /><br /> 
+<asp:Button ID="btnDisplay" runat="server" Text="Display" 
+OnClick="btnDisplay_Click" /><br /><br /> 
+<asp:Label ID="lblOutput" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program3.aspx.cs: 
+using System; 
+public partial class Program3 : System.Web.UI.Page 
+{ 
+protected void btnDisplay_Click(object sender, EventArgs e) 
+{ 
+lblOutput.Text = "You entered: " + txtInput.Text; 
+} 
+} 
+Output: 
+On clicking Display, label shows "You entered: [InputText]". 
+
+Program 4: Web Application Using Web Controls 
+Demonstrate various web controls like DropDownList, CheckBox, RadioButton, and 
+Buttons. 
+Program4.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program4.aspx.cs" 
+Inherits="Program4" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 4</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:DropDownList ID="ddlColors" runat="server"> 
+<asp:ListItem Text="Red" Value="Red"></asp:ListItem> 
+<asp:ListItem Text="Green" Value="Green"></asp:ListItem> 
+<asp:ListItem Text="Blue" Value="Blue"></asp:ListItem> 
+</asp:DropDownList><br /><br /> 
+<asp:CheckBox ID="chkBold" runat="server" Text="Bold" /><br 
+/><br /> 
+<asp:RadioButtonList ID="rblSize" runat="server"> 
+<asp:ListItem Text="10" Value="10"></asp:ListItem> 
+<asp:ListItem Text="14" Value="14"></asp:ListItem> 
+<asp:ListItem Text="18" Value="18"></asp:ListItem> 
+</asp:RadioButtonList><br /><br /> 
+<asp:Button ID="btnStyle" runat="server" Text="Apply Style" 
+OnClick="btnStyle_Click" /><br /><br /> 
+<asp:Label ID="lblStyledText" runat="server" Text="Sample 
+Text"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program4.aspx.cs: 
+using System; 
+public partial class Program4 : System.Web.UI.Page 
+{ 
+protected void btnStyle_Click(object sender, EventArgs e) 
+{ 
+lblStyledText.ForeColor = 
+System.Drawing.Color.FromName(ddlColors.SelectedValue); 
+lblStyledText.Font.Bold = chkBold.Checked; 
+lblStyledText.Font.Size = 
+FontUnit.Point(Convert.ToInt32(rblSize.SelectedValue)); 
+} 
+} 
+Output: 
+Changes label color, boldness, and font size based on selected controls. 
+ 
+ 
+  
+Program 5: Web Application Using List Controls 
+Show ListBox and CheckBoxList controls and display selected items. 
+Program5.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program5.aspx.cs" 
+Inherits="Program5" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 5</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:ListBox ID="lstFruits" runat="server" 
+SelectionMode="Multiple"> 
+<asp:ListItem>Apple</asp:ListItem> 
+<asp:ListItem>Banana</asp:ListItem> 
+<asp:ListItem>Cherry</asp:ListItem> 
+</asp:ListBox><br /><br /> 
+<asp:CheckBoxList ID="cblHobbies" runat="server"> 
+<asp:ListItem>Reading</asp:ListItem> 
+<asp:ListItem>Traveling</asp:ListItem> 
+<asp:ListItem>Swimming</asp:ListItem> 
+</asp:CheckBoxList><br /><br /> 
+<asp:Button ID="btnShowSelections" runat="server" Text="Show 
+Selections" OnClick="btnShowSelections_Click" /><br /><br /> 
+<asp:Label ID="lblSelections" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program5.aspx.cs: 
+using System; 
+using System.Text; 
+public partial class Program5 : System.Web.UI.Page 
+{ 
+protected void btnShowSelections_Click(object sender, EventArgs e) 
+{ 
+StringBuilder sb = new StringBuilder(); 
+sb.Append("Fruits: "); 
+foreach (System.Web.UI.WebControls.ListItem li in lstFruits.Items) 
+{ 
+if (li.Selected) 
+sb.Append(li.Text + ", "); 
+} 
+sb.Append(" | Hobbies: "); 
+foreach (System.Web.UI.WebControls.ListItem li in cblHobbies.Items) 
+{ 
+if (li.Selected) 
+sb.Append(li.Text + ", "); 
+} 
+lblSelections.Text = sb.ToString(); 
+} 
+} 
+Output: 
+Displays selected fruits and hobbies separated by commas. 
+Program 6: Web Page Design Using Rich Controls and Validation Controls; 
+File Handling 
+Use Calendar control, FileUpload, and Validation controls; implement file upload. (Create a 
+folder Uploads in project by right click the project click add folder give name Uploads) 
+
+
+Program6.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program6.aspx.cs" 
+Inherits="Program6" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 6</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:Calendar ID="Calendar1" runat="server" 
+OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar><br /><br /> 
+Select Date: <asp:TextBox ID="txtDate" runat="server" 
+ReadOnly="True"></asp:TextBox><br /><br /> 
+<asp:RequiredFieldValidator ControlToValidate="fuFile" 
+ErrorMessage="Select a file" 
+runat="server"></asp:RequiredFieldValidator><br /><br /> 
+<asp:FileUpload ID="fuFile" runat="server" /><br /><br /> 
+<asp:Button ID="btnSubmit" runat="server" Text="Submit" 
+OnClick="btnSubmit_Click" /><br /><br /> 
+<asp:Label ID="lblMessage" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program6.aspx.cs: 
+using System; 
+public partial class Program6 : System.Web.UI.Page 
+{ 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+if (!IsPostBack) 
+{ 
+txtDate.Text = DateTime.Now.ToShortDateString(); 
+} 
+} 
+protected void Calendar1_SelectionChanged(object sender, EventArgs e) 
+{ 
+txtDate.Text = Calendar1.SelectedDate.ToShortDateString(); 
+} 
+protected void btnSubmit_Click(object sender, EventArgs e) 
+{ 
+if (fuFile.HasFile) 
+{ 
+string path = Server.MapPath("~/Uploads/") + fuFile.FileName; 
+fuFile.SaveAs(path); 
+lblMessage.Text = "Date: " + txtDate.Text + " | File saved at: 
+" + path; 
+} 
+else 
+{ 
+lblMessage.Text = "Please select a file."; 
+} 
+} 
+} 
+Output: 
+Calendar displays current date; on selecting a date, txtDate updates. On selecting a file and 
+clicking Submit, displays date and server path of saved file. 
+
+Program 7: Web Application Using Data Controls 
+Bind a GridView to a SqlDataSource and display data from database. 
+Program7.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gridview.aspx.cs" 
+Inherits="GridView1.gridview" %> 
+ 
+<!DOCTYPE html> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+        <div> 
+            <asp:GridView runat="server" AutoGenerateColumns="False" 
+DataKeyNames="StudentId" DataSourceID="SqlDataSource1"> 
+    <Columns> 
+        <asp:BoundField DataField="StudentId" HeaderText="StudentId" InsertVisible="False" 
+ReadOnly="True" SortExpression="StudentId" /> 
+        <asp:BoundField DataField="SName" HeaderText="SName" SortExpression="SName" 
+/> 
+    </Columns> 
+</asp:GridView> 
+ 
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ 
+ConnectionStrings:SchoolDBConnectionString %>" SelectCommand="SELECT * FROM 
+[Student]"></asp:SqlDataSource> 
+ 
+</div> 
+</form> 
+</body> 
+</html> 
+Output: 
+
+
+
+Program 8: Data Binding with Web Controls 
+Bind DropDownList to database data from SqlDataSource. 
+Program8.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program8.aspx.cs" 
+Inherits="Program8" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 8</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:DropDownList ID="ddlStudents" runat="server" 
+DataSourceID="SqlDataSource1" DataTextField="Name" 
+DataValueField="StudentID"></asp:DropDownList> 
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+ConnectionString="<%$ ConnectionStrings:SchoolDBConnectionString %>" 
+SelectCommand="SELECT StudentID, Name FROM Students"></asp:SqlDataSource> 
+</div> 
+</form> 
+</body> 
+</html> 
+Output: 
+DropDownList populated with student names from database; selecting an item sets 
+SelectedValue to StudentID.
+
+ 
+Program 9: Data Binding with Data Controls 
+Use DetailsView to display single record and bind to SqlDataSource. 
+Program9.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program9.aspx.cs" 
+Inherits="Program9" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 9</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:DetailsView ID="DetailsView1" runat="server" 
+AutoGenerateRows="True" DataKeyNames="StudentID" 
+DataSourceID="SqlDataSource1"></asp:DetailsView> 
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+ConnectionString="<%$ ConnectionStrings:SchoolDBConnectionString %>" 
+SelectCommand="SELECT StudentID, Name, Age FROM Students WHERE 
+StudentID=1"></asp:SqlDataSource> 
+</div> 
+</form> 
+</body> 
+</html> 
+Output: 
+DetailsView displays the record of student with StudentID = 1. 
+
+
+Program 10: Database Application to Perform Insert, Update, Delete 
+Operations 
+Use SqlCommand in code-behind to perform CRUD operations via buttons. 
+Program10.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program10.aspx.cs" 
+Inherits="Program10" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 10 - Insert, Update, Delete with Auto ID</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+Student ID:<br /> 
+<asp:TextBox ID="txtID" runat="server" ReadOnly="true" /><br /><br 
+/> 
+Name:<br /> 
+<asp:TextBox ID="txtName10" runat="server" /><br /><br /> 
+Age:<br /> 
+<asp:TextBox ID="txtAge10" runat="server" /><br /><br /> 
+<asp:Button ID="btnInsert" runat="server" Text="Insert" 
+OnClick="btnInsert_Click" /> 
+<asp:Button ID="btnUpdate" runat="server" Text="Update" 
+OnClick="btnUpdate_Click" /> 
+<asp:Button ID="btnDelete" runat="server" Text="Delete" 
+OnClick="btnDelete_Click" /><br /><br /> 
+<asp:Label ID="lblResult10" runat="server" ForeColor="Green" /><br 
+/><br /> 
+<asp:GridView ID="GridView1" runat="server" 
+AutoGenerateColumns="True" 
+OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+AutoGenerateSelectButton="True"> 
+</asp:GridView> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program10.aspx.cs: 
+using System; 
+using System.Data; 
+using System.Data.SqlClient; 
+using System.Web.UI.WebControls; 
+public partial class Program10 : System.Web.UI.Page 
+{ 
+string connString = 
+System.Configuration.ConfigurationManager.ConnectionStrings["SchoolDBConnectio
+nString2"].ConnectionString; 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+if (!IsPostBack) 
+{ 
+LoadGrid(); 
+} 
+} 
+private void LoadGrid() 
+{ 
+} 
+using (SqlConnection conn = new SqlConnection(connString)) 
+{ 
+} 
+string sql = "SELECT * FROM Students"; 
+SqlDataAdapter da = new SqlDataAdapter(sql, conn); 
+DataTable dt = new DataTable(); 
+da.Fill(dt); 
+GridView1.DataSource = dt; 
+GridView1.DataBind(); 
+protected void btnInsert_Click(object sender, EventArgs e) 
+{ 
+using (SqlConnection conn = new SqlConnection(connString)) 
+{ 
+conn.Open(); 
+string sql = "INSERT INTO Students (Name, Age) OUTPUT 
+INSERTED.StudentID VALUES (@Name, @Age)"; 
+using (SqlCommand cmd = new SqlCommand(sql, conn)) 
+{ 
+cmd.Parameters.AddWithValue("@Name", txtName10.Text); 
+cmd.Parameters.AddWithValue("@Age", txtAge10.Text); 
+int newID = (int)cmd.ExecuteScalar(); 
+txtID.Text = newID.ToString(); 
+lblResult10.Text = "Record inserted with ID: " + newID; 
+} 
+} 
+LoadGrid(); 
+} 
+protected void btnUpdate_Click(object sender, EventArgs e) 
+{ 
+if (string.IsNullOrWhiteSpace(txtID.Text)) 
+{ 
+} 
+lblResult10.Text = "Select a record to update."; 
+return; 
+using (SqlConnection conn = new SqlConnection(connString)) 
+{ 
+conn.Open(); 
+string sql = "UPDATE Students SET Name=@Name, Age=@Age WHERE 
+StudentID=@ID"; 
+using (SqlCommand cmd = new SqlCommand(sql, conn)) 
+{ 
+} 
+cmd.Parameters.AddWithValue("@Name", txtName10.Text); 
+cmd.Parameters.AddWithValue("@Age", txtAge10.Text); 
+cmd.Parameters.AddWithValue("@ID", txtID.Text); 
+int rows = cmd.ExecuteNonQuery(); 
+lblResult10.Text = rows + " row(s) updated."; 
+} 
+LoadGrid(); 
+} 
+protected void btnDelete_Click(object sender, EventArgs e) 
+{ 
+} 
+if (string.IsNullOrWhiteSpace(txtID.Text)) 
+{ 
+} 
+lblResult10.Text = "Select a record to delete."; 
+return; 
+using (SqlConnection conn = new SqlConnection(connString)) 
+{ 
+} 
+conn.Open(); 
+string sql = "DELETE FROM Students WHERE StudentID=@ID"; 
+using (SqlCommand cmd = new SqlCommand(sql, conn)) 
+{ 
+} 
+cmd.Parameters.AddWithValue("@ID", txtID.Text); 
+int rows = cmd.ExecuteNonQuery(); 
+lblResult10.Text = rows + " row(s) deleted."; 
+ClearForm(); 
+LoadGrid(); 
+protected void GridView1_SelectedIndexChanged(object sender,EventArgs e) 
+{ 
+GridViewRow row = GridView1.SelectedRow; 
+txtID.Text = row.Cells[1].Text; 
+txtName10.Text = row.Cells[2].Text; 
+txtAge10.Text = row.Cells[3].Text; 
+} 
+private void ClearForm() 
+{ 
+} 
+} 
+Output: 
+txtID.Text = ""; 
+txtName10.Text = ""; 
+txtAge10.Text = ""; 
+Insert, Update, Delete or View operations performed on Students table. lblResult10 displays 
+number of affected rows. 
+
+
+Program 11: Database Application Using Data Controls for CRUD with 
+Paging and Sorting 
+Use GridView bound to SqlDataSource with Edit, Delete, Paging, Sorting enabled. 
+Program11.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program11.aspx.cs" 
+Inherits="Program11" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 11</title> 
+</head> 
+<body> 
+<form id="form2" runat="server"> 
+<div> 
+<h3>Insert New Student</h3> 
+<table> 
+<tr> 
+<td>Name:</td> 
+<td><asp:TextBox ID="txtName11" runat="server" /></td> 
+</tr> 
+<tr> 
+<td>Age:</td> 
+<td><asp:TextBox ID="txtAge11" runat="server" /></td> 
+</tr> 
+<tr> 
+<td colspan="2"> 
+<asp:Button ID="btnInsert11" runat="server" 
+Text="Insert" OnClick="btnInsert11_Click" /> 
+</td> 
+</tr> 
+</table> 
+<asp:Label ID="lblMessage11" runat="server" ForeColor="Green" /> 
+<br /><br /> 
+<asp:GridView ID="GridView2" runat="server" 
+AutoGenerateColumns="False" 
+DataKeyNames="StudentID" DataSourceID="SqlDataSource1" 
+AllowPaging="True" AllowSorting="True" PageSize="5"> 
+<Columns> 
+<asp:BoundField DataField="StudentID" HeaderText="ID" 
+ReadOnly="True" SortExpression="StudentID" /> 
+<asp:BoundField DataField="Name" HeaderText="Name" 
+SortExpression="Name" /> 
+<asp:BoundField DataField="Age" HeaderText="Age" 
+SortExpression="Age" /> 
+<asp:CommandField ShowEditButton="True" 
+ShowDeleteButton="True" /> 
+</Columns> 
+</asp:GridView> 
+<asp:SqlDataSource ID="SqlDataSource1" runat="server"  
+ConnectionString="<%$ 
+ConnectionStrings:SchoolDBConnectionString2 %>"  
+SelectCommand="SELECT StudentID, Name, Age FROM Students" 
+UpdateCommand="UPDATE Students SET Name=@Name, Age=@Age WHERE 
+StudentID=@StudentID" 
+DeleteCommand="DELETE FROM Students WHERE 
+StudentID=@StudentID"> 
+<UpdateParameters> 
+<asp:Parameter Name="Name" Type="String" /> 
+<asp:Parameter Name="Age" Type="Int32" /> 
+<asp:Parameter Name="StudentID" Type="Int32" /> 
+</UpdateParameters> 
+<DeleteParameters> 
+<asp:Parameter Name="StudentID" Type="Int32" /> 
+</DeleteParameters> 
+</asp:SqlDataSource> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program11.aspx.cs: 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+using System.Data.SqlClient; 
+public partial class Program11 : System.Web.UI.Page 
+{ 
+string connString = 
+System.Configuration.ConfigurationManager.ConnectionStrings["SchoolDBConnectio
+nString2"].ConnectionString; 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+} 
+protected void btnInsert11_Click(object sender, EventArgs e) 
+{ 
+@Age)"; 
+if (txtName11.Text.Trim() == "" || txtAge11.Text.Trim() == "") 
+{ 
+} 
+lblMessage11.Text = "Please enter Name and Age."; 
+lblMessage11.ForeColor = System.Drawing.Color.Red; 
+return; 
+using (SqlConnection conn = new SqlConnection(connString)) 
+{ 
+} 
+conn.Open(); 
+string sql = "INSERT INTO Students (Name, Age) VALUES (@Name, 
+using (SqlCommand cmd = new SqlCommand(sql, conn)) 
+{ 
+} 
+cmd.Parameters.AddWithValue("@Name", txtName11.Text.Trim()); 
+cmd.Parameters.AddWithValue("@Age", txtAge11.Text.Trim()); 
+int rows = cmd.ExecuteNonQuery(); 
+lblMessage11.Text = $"{rows} row(s) inserted."; 
+lblMessage11.ForeColor = System.Drawing.Color.Green; 
+txtName11.Text = ""; 
+txtAge11.Text = ""; 
+GridView2.DataBind(); // refresh grid 
+} 
+} 
+Output: 
+GridView displays Students data with Edit, Delete buttons, and supports paging(more than 
+5 records display in next page) and sorting (ID, Name, Age). 
+
+
+
+Program 12: Implement XML Classes 
+Use XmlDocument to read and XmlTextWriter to write XML. 
+Program12.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program12.aspx.cs" 
+Inherits="Program12" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Program 12</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:Button ID="btnRead" runat="server" Text="Read XML" 
+OnClick="btnRead_Click" /><br /><br /> 
+<asp:GridView ID="GridView1" runat="server" 
+AutoGenerateColumns="True"></asp:GridView><br /><br /> 
+ID: <asp:TextBox ID="txtID12" runat="server"></asp:TextBox><br 
+/><br /> 
+Name: <asp:TextBox ID="txtName12" 
+runat="server"></asp:TextBox><br /><br /> 
+Age: <asp:TextBox ID="txtAge12" 
+runat="server"></asp:TextBox><br /><br /> 
+<asp:Button ID="btnWrite" runat="server" Text="Write XML" 
+OnClick="btnWrite_Click" /><br /><br /> 
+<asp:Label ID="lblStatus12" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program12.aspx.cs: 
+using System; 
+using System.Data; 
+using System.Xml; 
+public partial class Program12 : System.Web.UI.Page 
+{ 
+protected void btnRead_Click(object sender, EventArgs e) 
+{ 
+XmlDocument xmlDoc = new XmlDocument(); 
+xmlDoc.Load(Server.MapPath("~/App_Data/NewStudents.xml")); 
+XmlNodeList nodes = xmlDoc.SelectNodes("/Students/Student"); 
+DataTable dt = new DataTable(); 
+dt.Columns.Add("StudentID"); 
+dt.Columns.Add("Name"); 
+dt.Columns.Add("Age"); 
+foreach (XmlNode node in nodes) 
+{ 
+} 
+DataRow dr = dt.NewRow(); 
+dr["StudentID"] = node["StudentID"].InnerText; 
+dr["Name"] = node["Name"].InnerText; 
+dr["Age"] = node["Age"].InnerText; 
+dt.Rows.Add(dr); 
+GridView1.DataSource = dt; 
+GridView1.DataBind(); 
+} 
+protected void btnWrite_Click(object sender, EventArgs e) 
+{ 
+string filePath = Server.MapPath("~/App_Data/NewStudents.xml"); 
+XmlDocument xmlDoc = new XmlDocument(); 
+// If file exists, load and append 
+if (System.IO.File.Exists(filePath)) 
+{ 
+xmlDoc.Load(filePath); 
+XmlNode root = xmlDoc.DocumentElement; 
+XmlElement student = xmlDoc.CreateElement("Student"); 
+XmlElement id = xmlDoc.CreateElement("StudentID"); 
+id.InnerText = txtID12.Text; 
+student.AppendChild(id); 
+XmlElement name = xmlDoc.CreateElement("Name"); 
+name.InnerText = txtName12.Text; 
+student.AppendChild(name); 
+XmlElement age = xmlDoc.CreateElement("Age"); 
+age.InnerText = txtAge12.Text; 
+student.AppendChild(age); 
+root.AppendChild(student); 
+} 
+else 
+{ 
+"UTF-8", null); 
+// If file doesn't exist, create new structure 
+XmlDeclaration xmlDecl = xmlDoc.CreateXmlDeclaration("1.0", 
+xmlDoc.AppendChild(xmlDecl); 
+XmlElement root = xmlDoc.CreateElement("Students"); 
+xmlDoc.AppendChild(root); 
+XmlElement student = xmlDoc.CreateElement("Student"); 
+XmlElement id = xmlDoc.CreateElement("StudentID"); 
+id.InnerText = txtID12.Text; 
+student.AppendChild(id); 
+XmlElement name = xmlDoc.CreateElement("Name"); 
+name.InnerText = txtName12.Text; 
+student.AppendChild(name); 
+XmlElement age = xmlDoc.CreateElement("Age"); 
+age.InnerText = txtAge12.Text; 
+student.AppendChild(age); 
+root.AppendChild(student); 
+} 
+xmlDoc.Save(filePath); 
+lblStatus12.Text = "Student added to XML file."; 
+} 
+} 
+Output: 
+Enter ID, Name, Age and click Write XML to create NewStudents.xml and display success 
+message. Click Read XML to populate GridView from Students.xml. 
+
+Program 13: Implement Authentication–Authorization 
+Demonstrate Forms Authentication with login and protected page. 
+Program13.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program13.aspx.cs" 
+Inherits="Program13" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Login Page</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<asp:TextBox ID="txtUser" runat="server" 
+Placeholder="Username"></asp:TextBox><br /><br /> 
+<asp:TextBox ID="txtPass" runat="server" TextMode="Password" 
+Placeholder="Password"></asp:TextBox><br /><br /> 
+<asp:Button ID="btnLogin" runat="server" Text="Login" 
+OnClick="btnLogin_Click" /><br /><br /> 
+<asp:Label ID="lblError" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program13.aspx.cs: 
+using System; 
+using System.Web.Security; 
+public partial class Login : System.Web.UI.Page 
+{ 
+protected void btnLogin_Click(object sender, EventArgs e) 
+{ 
+if (txtUser.Text == "admin" && txtPass.Text == "admin") 
+{ 
+FormsAuthentication.RedirectFromLoginPage(txtUser.Text, false); 
+Response.Redirect("Welcome.aspx");  
+} 
+else 
+{ 
+lblError.Text = "Invalid credentials."; 
+} 
+} 
+} 
+Welcome.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Welcome.aspx.cs" 
+Inherits="Welcome" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Welcome</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<h1> Welcome Admin </h1> 
+</div> 
+</form> 
+</body> 
+</html> 
+Output: 
+Program13.aspx authenticates user "admin"/"admin". On success, redirects to 
+Protected.aspx showing "Welcome, admin". 
+
+
+Program 14: Ticket Reservation Using ASP.NET Controls 
+Create a form to select source, destination, date, and display ticket details. 
+Program14.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program14.aspx.cs" 
+Inherits="Program14" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Ticket Reservation</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+Source: <asp:DropDownList ID="ddlSource" runat="server"> 
+<asp:ListItem>City A</asp:ListItem> 
+<asp:ListItem>City B</asp:ListItem> 
+</asp:DropDownList><br /><br /> 
+Destination: <asp:DropDownList ID="ddlDestination" 
+runat="server"> 
+<asp:ListItem>City X</asp:ListItem> 
+<asp:ListItem>City Y</asp:ListItem> 
+</asp:DropDownList><br /><br /> 
+<asp:Calendar ID="Calendar1" runat="server"></asp:Calendar><br 
+/><br /> 
+<asp:Button ID="btnReserve" runat="server" Text="Reserve 
+Ticket" OnClick="btnReserve_Click" /><br /><br /> 
+<asp:Label ID="lblTicket" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program14.aspx.cs: 
+using System; 
+public partial class Program14 : System.Web.UI.Page 
+{ 
+protected void btnReserve_Click(object sender, EventArgs e) 
+{ 
+lblTicket.Text = "Ticket Reserved: From " + 
+ddlSource.SelectedItem.Text + " to " + ddlDestination.SelectedItem.Text + 
+"; Date: " + Calendar1.SelectedDate.ToShortDateString(); 
+} 
+} 
+Output: 
+Displays reservation details: source, destination, and selected date after clicking Reserve 
+Ticket. 
+ 
+ 
+  
+Program 15: Online Examination Using ASP.NET Controls 
+Create a quiz with multiple choice questions using RadioButtonList and display score. 
+Program15.aspx: 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program15.aspx.cs" 
+Inherits="Program15" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title>Online Examination</title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<h4>1. What is the capital of India?<br /></h4> 
+<asp:RadioButtonList ID="rblQ1" runat="server"> 
+<asp:ListItem>New Delhi</asp:ListItem> 
+<asp:ListItem>Chennai</asp:ListItem> 
+<asp:ListItem>Kerala</asp:ListItem> 
+</asp:RadioButtonList><br /><br /> 
+<h4>2. Select programming languages:<br /></h4> 
+<asp:CheckBoxList ID="cblQ2" runat="server"> 
+<asp:ListItem Text="C" Value="C#"></asp:ListItem> 
+<asp:ListItem Text="HTML" Value="HTML"></asp:ListItem> 
+<asp:ListItem Text="Java" Value="Java"></asp:ListItem> 
+</asp:CheckBoxList><br /><br /> 
+<asp:Button ID="btnSubmitExam" runat="server" Text="Submit Exam" 
+OnClick="btnSubmitExam_Click" /><br /><br /> 
+<asp:Label ID="lblScore" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+Program15.aspx.cs: 
+using System; 
+public partial class Program15 : System.Web.UI.Page 
+{ 
+protected void btnSubmitExam_Click(object sender, EventArgs e) 
+{ 
++= 5; 
+} 
+} 
+Output: 
+int score = 0; 
+if (rblQ1.SelectedValue == "New Delhi") score += 5; 
+foreach (System.Web.UI.WebControls.ListItem li in cblQ2.Items) 
+{ 
+} 
+if (li.Selected && (li.Value == "C" || li.Value == "Java")) score 
+lblScore.Text = "Your Score: " + score; 
+Displays score: 5 points for each correct answer (Q1 and Q2). 
+
+ 
+ 
+ 
+ 
+ 
