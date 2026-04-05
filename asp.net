@@ -1,4 +1,3 @@
-ASP.NET Lab Programs 
 Program 1: Exposure of Web Applications and Tools 
 Aim:  To demonstrate ASP.NET project structure and tools. 
 Program1.aspx: 
@@ -31,7 +30,6 @@ software: ASP.NET using Visual Studio 2019<br />" +
 
 
 
-A web page displaying the heading and description of project structure and tools. 
 Program 2: Implement HTML Controls 
 Use HTML controls and access their values in code-behind. 
 Program2.aspx: 
@@ -62,9 +60,8 @@ string name = Request.Form["name"];
 Response.Write("Hello, " + name); 
     } 
 } 
-Output: 
-When user enters a name and clicks Show Name, the page displays "Hello, [Name]!". 
- 
+
+
   
 Program 3: Implement Server Controls 
 Use ASP.NET server controls (TextBox, Button, Label) to get and display input. 
@@ -97,8 +94,8 @@ protected void btnDisplay_Click(object sender, EventArgs e)
 lblOutput.Text = "You entered: " + txtInput.Text; 
 } 
 } 
-Output: 
-On clicking Display, label shows "You entered: [InputText]". 
+
+
 
 Program 4: Web Application Using Web Controls 
 Demonstrate various web controls like DropDownList, CheckBox, RadioButton, and 
@@ -147,8 +144,7 @@ lblStyledText.Font.Size =
 FontUnit.Point(Convert.ToInt32(rblSize.SelectedValue)); 
 } 
 } 
-Output: 
-Changes label color, boldness, and font size based on selected controls. 
+
  
  
   
@@ -206,12 +202,8 @@ sb.Append(li.Text + ", ");
 lblSelections.Text = sb.ToString(); 
 } 
 } 
-Output: 
-Displays selected fruits and hobbies separated by commas. 
-Program 6: Web Page Design Using Rich Controls and Validation Controls; 
-File Handling 
-Use Calendar control, FileUpload, and Validation controls; implement file upload. (Create a 
-folder Uploads in project by right click the project click add folder give name Uploads) 
+
+
 
 
 Program6.aspx: 
@@ -270,9 +262,8 @@ lblMessage.Text = "Please select a file.";
 } 
 } 
 } 
-Output: 
-Calendar displays current date; on selecting a date, txtDate updates. On selecting a file and 
-clicking Submit, displays date and server path of saved file. 
+
+
 
 Program 7: Web Application Using Data Controls 
 Bind a GridView to a SqlDataSource and display data from database. 
@@ -307,7 +298,7 @@ ConnectionStrings:SchoolDBConnectionString %>" SelectCommand="SELECT * FROM
 </form> 
 </body> 
 </html> 
-Output: 
+ 
 
 
 
@@ -334,9 +325,8 @@ SelectCommand="SELECT StudentID, Name FROM Students"></asp:SqlDataSource>
 </form> 
 </body> 
 </html> 
-Output: 
-DropDownList populated with student names from database; selecting an item sets 
-SelectedValue to StudentID.
+
+
 
  
 Program 9: Data Binding with Data Controls 
@@ -363,8 +353,8 @@ StudentID=1"></asp:SqlDataSource>
 </form> 
 </body> 
 </html> 
-Output: 
-DetailsView displays the record of student with StudentID = 1. 
+
+
 
 
 Program 10: Database Application to Perform Insert, Update, Delete 
@@ -507,12 +497,8 @@ private void ClearForm()
 { 
 } 
 } 
-Output: 
-txtID.Text = ""; 
-txtName10.Text = ""; 
-txtAge10.Text = ""; 
-Insert, Update, Delete or View operations performed on Students table. lblResult10 displays 
-number of affected rows. 
+
+
 
 
 Program 11: Database Application Using Data Controls for CRUD with 
@@ -627,9 +613,7 @@ txtAge11.Text = "";
 GridView2.DataBind(); // refresh grid 
 } 
 } 
-Output: 
-GridView displays Students data with Edit, Delete buttons, and supports paging(more than 
-5 records display in next page) and sorting (ID, Name, Age). 
+
 
 
 
@@ -734,9 +718,9 @@ xmlDoc.Save(filePath);
 lblStatus12.Text = "Student added to XML file."; 
 } 
 } 
-Output: 
-Enter ID, Name, Age and click Write XML to create NewStudents.xml and display success 
-message. Click Read XML to populate GridView from Students.xml. 
+
+
+
 
 Program 13: Implement Authentication–Authorization 
 Demonstrate Forms Authentication with login and protected page. 
@@ -796,9 +780,7 @@ Inherits="Welcome" %>
 </form> 
 </body> 
 </html> 
-Output: 
-Program13.aspx authenticates user "admin"/"admin". On success, redirects to 
-Protected.aspx showing "Welcome, admin". 
+
 
 
 Program 14: Ticket Reservation Using ASP.NET Controls 
@@ -843,9 +825,7 @@ ddlSource.SelectedItem.Text + " to " + ddlDestination.SelectedItem.Text +
 "; Date: " + Calendar1.SelectedDate.ToShortDateString(); 
 } 
 } 
-Output: 
-Displays reservation details: source, destination, and selected date after clicking Reserve 
-Ticket. 
+ 
  
  
   
@@ -889,19 +869,4 @@ protected void btnSubmitExam_Click(object sender, EventArgs e)
 { 
 += 5; 
 } 
-} 
-Output: 
-int score = 0; 
-if (rblQ1.SelectedValue == "New Delhi") score += 5; 
-foreach (System.Web.UI.WebControls.ListItem li in cblQ2.Items) 
-{ 
-} 
-if (li.Selected && (li.Value == "C" || li.Value == "Java")) score 
-lblScore.Text = "Your Score: " + score; 
-Displays score: 5 points for each correct answer (Q1 and Q2). 
-
- 
- 
- 
- 
- 
+}  
