@@ -1,0 +1,454 @@
+PROGRAM 1 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace WebApplication2 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+protected void Button1_Click(object sender, EventArgs e) 
+{ 
+Label1.Text = "your name :" + TextBox1.Text + "<br>" + "gender :" + 
+RadioButtonList1.Text + "<br> " + "languages known :" + CheckBoxList1.Text; 
+} 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication2.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+<asp:RadioButtonList ID="RadioButtonList1" runat="server"> 
+<asp:ListItem>male</as 
+p:ListItem> 
+<asp:ListItem Value="female"></asp:ListItem> 
+</asp:RadioButtonList> 
+<asp:CheckBoxList ID="CheckBoxList1" runat="server"> 
+<asp:ListItem>python</asp:ListItem> 
+<asp:ListItem>java</asp:ListItem> 
+</asp:CheckBoxList> 
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" /> 
+<p> 
+<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+</p> 
+</form> 
+</body> 
+</html> 
+
+
+PROGRAM 2 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace WebApplication2 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+protected void Button1_Click(object sender, EventArgs e) 
+{ 
+Label1.Text = "your name :" + TextBox1.Text; 
+} 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication2.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" /> 
+<p> 
+<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+</p> 
+</form> 
+</body> 
+</html> 
+
+
+PROGRAM 3 
+( study what ever you want for this program and try your best to get output) 
+Database program don’t have source code so try to study the fullhtml code to manage  
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gridview.aspx.cs" 
+Inherits="GridView1.gridview" %>  
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+<title></title>  
+</head>  
+<body>  
+<form id="form1" runat="server">  
+<div>  
+<asp:GridView runat="server" AutoGenerateColumns="False" DataKeyNames="StudentId" 
+DataSourceID="SqlDataSource1">  
+<Columns>  
+<asp:BoundField DataField="StudentId" HeaderText="StudentId" InsertVisible="False" 
+ReadOnly="True" SortExpression="StudentId" />  
+<asp:BoundField DataField="SName" HeaderText="SName" SortExpression="SName" /> 
+</Columns> 
+</asp:GridView> 
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ 
+ConnectionStrings:SchoolDBConnectionString %>" SelectCommand="SELECT * FROM 
+[Student]"> 
+</asp:SqlDataSource> 
+</div> 
+</form>  
+</body> </html> 
+
+PROGRAM 4 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace WebApplication2 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+protected void Button1_Click(object sender, EventArgs e) 
+{ 
+Label1.Text = "year :" + ListBox1.Text + "<br>" + "gender :" + RadioButtonList1.Text + 
+"<br> " + "languages known :" + CheckBoxList1.Text; 
+} 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication2.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<asp:Listbox ID="ListBox1" runat="server"> 
+<asp:ListItem>CS</asp:ListItem> 
+<asp:ListItem >AI</asp:ListItem> 
+</asp:Listbox> 
+<asp:RadioButtonList ID="RadioButtonList1" runat="server"> 
+<asp:ListItem>male</asp:ListItem> 
+<asp:ListItem Value="female"></asp:ListItem> 
+</asp:RadioButtonList> 
+<asp:CheckBoxList ID="CheckBoxList1" runat="server"> 
+<asp:ListItem>python</asp:ListItem> 
+<asp:ListItem>java</asp:ListItem> 
+</asp:CheckBoxList> 
+<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" /> 
+<p> 
+<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> 
+</p> 
+</form></body> 
+</html> 
+OPTION  1 : 
+using System; 
+
+
+PROGRAM 5 
+public partial class _Default : System.Web.UI.Page 
+{ 
+protected void btnShow_Click(object sender, EventArgs e) 
+{ 
+lblMsg.Text = "Hello world"; 
+} 
+} 
+<asp:Button ID="btnShow" runat="server" Text="Click Me" OnClick="btnShow_Click" /> 
+<br /><br /> 
+<asp:Label ID="lblMsg" runat="server"></asp:Label> 
+OPTION 2 : (if you are not getting output) 
+<h1>HELLO WORLD </h1> 
+
+
+
+PROGRAM 6 
+using System; 
+using System.Collections.Generic; 
+using System.Data; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace WebApplication3 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+string path; 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+} 
+//   
+path = Server.MapPath("~/students.xml"); 
+CREATE / WRITE XML 
+protected void BtnSave_Click(object sender, EventArgs e) 
+{ 
+DataSet ds = new DataSet("students"); 
+DataTable dt = new DataTable("student"); 
+dt.Columns.Add("name"); 
+dt.Columns.Add("age"); 
+dt.Columns.Add("dept"); 
+DataRow dr = dt.NewRow(); 
+dr["name"] = txtName.Text; 
+dr["age"] = txtAge.Text; 
+dr["dept"] = txtDept.Text; 
+dt.Rows.Add(dr); 
+ds.Tables.Add(dt); 
+ds.WriteXml(path); 
+Response.Write("XML File Created Successfully!"); 
+} 
+//   
+READ XML 
+protected void BtnLoad_Click(object sender, EventArgs e) 
+{ 
+DataSet ds = new DataSet(); 
+ds.ReadXml(path); 
+GridView1.DataSource = ds.Tables[0]; 
+GridView1.DataBind(); 
+} 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication3.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body> 
+<form id="form1" runat="server"> 
+<h2>XML File Operations</h2> 
+Name:  <asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br /> 
+Age:<asp:TextBox ID="txtAge" runat="server"></asp:TextBox><br /><br /> 
+Dept:<asp:TextBox ID="txtDept" runat="server"></asp:TextBox><br /><br /> 
+<!-- Create XML --> 
+<asp:Button ID="BtnSave" runat="server" Text="Save to XML" OnClick="BtnSave_Click" /> 
+<br /><br /> 
+<!-- Read XML --> 
+<asp:Button ID="BtnLoad" runat="server" Text="Load XML" OnClick="BtnLoad_Click" /> 
+<br /><br /> 
+<asp:GridView ID="GridView1" runat="server"></asp:GridView> 
+</form> 
+</body> 
+</html> 
+XML PROGRAM : 
+<?xml version="1.0" encoding="utf-8" ?> 
+<students> 
+<student> 
+<name>Harish</name> 
+<age>20</age> 
+<dept>CSE</dept> 
+</student> 
+<student> 
+<name>Arun</name> 
+<age>21</age> 
+<dept>IT</dept> 
+</student> 
+</students>
+
+
+PROGRAM 7 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+lblDateTime.Text = DateTime.Now.ToString(); 
+} 
+<asp:Label ID="lblDateTime" runat="server" Font-Size="Large"></asp:Label> 
+
+
+
+PROGRAM 8 
+For authentication program we will use 1 source code page and 2 html web form.. 
+html form 1 – main content for login 
+html 2 – welcome admin page (if you give crt username and password ) 
+using System; 
+namespace WebApplication2 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+protected void BtnLogin_Click(object sender, EventArgs e) 
+{ 
+if (txtUser.Text == "admin" && txtPass.Text == "admin") 
+{ 
+Response.Redirect("welcome.aspx");       
+} 
+else 
+{ 
+##give the second web form tab name  
+lblError.Text = "Wrong Username or Password"; 
+} 
+} 
+} 
+} 
+This is the first html webform1 tab ( type the main content in this ) 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication2.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body> 
+<form runat="server"> 
+Username: 
+<asp:TextBox ID="txtUser" runat="server"></asp:TextBox> 
+<br /><br /> 
+Password: 
+<asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox> 
+<br /><br /> 
+<asp:Button ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Click" /> 
+<br /><br /> 
+<asp:Label ID="lblError" runat="server"></asp:Label> 
+</form> 
+</body> 
+</html> 
+Click add and create another web form and name It as Welcome 
+<body> 
+<form id="form1" runat="server"> 
+<div> 
+<h1>WELCOME ADMIN</h1> (only write this content inside the div ) 
+</div> 
+
+
+PROGRAM 9 
+( Refer program 1 ) 
+(input field , dropdown list , checkbox) 
+PROGRAM 10 
+using System; 
+public partial class Program14 : System.Web.UI.Page  
+{  
+protected void btnReserve_Click(object sender, EventArgs e) 
+{  
+lblTicket.Text = "Ticket Reserved: From " + ddlSource.SelectedItem.Text + " to " + 
+ddlDestination.SelectedItem.Text + "; Date: " + Calendar1.SelectedDate.ToShortDateString();  
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Program14.aspx.cs" 
+Inherits="Program14" %> 
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server">  
+<title>Ticket Reservation</title> 
+</head>  
+<body>  
+<form id="form1" runat="server"> 
+<div>  
+Source: <asp:DropDownList ID="ddlSource" runat="server">  
+<asp:ListItem>City A</asp:ListItem>  
+<asp:ListItem>City B</asp:ListItem> 
+</asp:DropDownList><br /><br />  
+Destination: <asp:DropDownList ID="ddlDestination" runat="server"> 
+<asp:ListItem>City X</asp:ListItem>  
+<asp:ListItem>City Y</asp:ListItem> 
+</asp:DropDownList><br /><br />  
+<asp:Calendar ID="Calendar1" runat="server"></asp:Calendar><br /><br /> 
+<asp:Button ID="btnReserve" runat="server" Text="Reserve Ticket" 
+OnClick="btnReserve_Click" /><br /><br /> 
+<asp:Label ID="lblTicket" runat="server"></asp:Label> 
+</div> 
+</form>  
+</body> 
+</html> 
+
+
+PROGRAM 11 
+using System; 
+using System.Collections.Generic; 
+using System.Data.SqlTypes; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace WebApplication2 
+{ 
+public partial class WebForm1 : System.Web.UI.Page 
+{ 
+protected void btnUpload_Click(object sender, EventArgs e) 
+{ 
+if (fuFile.HasFile) 
+{ 
+string path = Server.MapPath("~/Uploads/") + fuFile.FileName; 
+fuFile.SaveAs(path); 
+lblMessage.Text = "File uploaded successfully!"; 
+} 
+else 
+{ 
+lblMessage.Text = "Please select a file."; 
+} 
+} 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="WebApplication2.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+<title></title> 
+</head> 
+<body id="body1" runat="server"> 
+<form id="form1" runat="server"> 
+<div> 
+Select File: 
+<asp:FileUpload ID="fuFile" runat="server" /> 
+<br /><br /> 
+<!-- Validation --> 
+<asp:RequiredFieldValidator ID="rfvFile"  
+runat="server"  
+ControlToValidate="fuFile" 
+ErrorMessage="Please select a file"> 
+</asp:RequiredFieldValidator> 
+<br /><br /> 
+<asp:Button ID="btnUpload" runat="server" Text="Upload" 
+OnClick="btnUpload_Click" /> 
+<br /><br /> 
+<asp:Label ID="lblMessage" runat="server"></asp:Label> 
+</div> 
+</form> 
+</body> 
+</html> 
+
+
+PROGRAM 12 
+using System; 
+public partial class _Default : System.Web.UI.Page 
+{ 
+protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e) 
+{ 
+string color = ListBox1.SelectedItem.Text; 
+body1.Style["background-color"] = color; 
+} 
+} 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" 
+Inherits="_Default" %> 
+<!DOCTYPE html> 
+<html> 
+<head runat="server"> 
+<title>Background Color Change</title> 
+</head> 
+<body id="body1" runat="server"> 
+<form id="form1" runat="server"> 
+<div> 
+<h2>Select Background Color</h2> 
+<asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" 
+OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"> 
+<asp:ListItem>White</asp:ListItem> 
+<asp:ListItem>Red</asp:ListItem> 
+<asp:ListItem>Green</asp:ListItem> 
+<asp:ListItem>Blue</asp:ListItem> 
+<asp:ListItem>Yellow</asp:ListItem> 
+</asp:ListBox> 
+</div> 
+</form> 
+</body> 
+</html> 
